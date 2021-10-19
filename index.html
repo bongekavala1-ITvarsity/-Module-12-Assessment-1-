@@ -1,22 +1,43 @@
-<htm>
+<html>
     <head>
-        <link rel="stylesheet" type="text/css" href="#">
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
-        <h1 id="heading1"></h1>
-        <p id="paragraph1"></p>
+        <p>Welcome. Please log in</p>
+        
+        <form>
+            <label for="usernameInput">Username:</label><input type="text" id="usernameInput"/><br/>
+            <label for="passwordInput">Password</label><input type="text" id="passwordInput"/>
+            <p id="message"></p>
+            <br/><br/>
+            <a href="3" onclick="verifyUser()">Log in </a>
+        </form>
         
         <script>
-            var text1;
-            var tex2;
-            var text3;
+                
+        function verifyUser(){
+            var username = document.getElementById("usernameInput").value;
+            var password = document.getElementById("passwordInput").value;
             
-            text1 = "Hello everyone on planet Earth";
-            text2 = "I love learning JS";
-            text3=  " JS is awesome";
             
-            document.getElementById("heading1").innerHTML = (text1);
-            document.getElementById("paragraph1").innerHTML = (text2 + text3);
+            checkUserCreds(username, password);
+                
+            }
+            function checkUserCreds(username, password){
+                var systemUsername = "Bond";
+                var systemPassword = "007";
+                
+                if(username == systemUsername && password == systemPassword){
+                    document.getElementById("message").innerHTML = "Correct.Logging you in...";
+                } else {
+                    document.getElementById("message").innerHTML = "Username or password are incorrect";
+                }
+                
+            
+            }
         </script>
+        
+    
+        
     </body>
-</htm>
+</html>
